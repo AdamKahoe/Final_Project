@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Dashboard</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark d-flex col-4 justify-content-around">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                <a href="/dashboard" class="btn btn-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                <a href="/home" class="btn btn-link">Home</a>
+                </li>
+                <li class="nav-item">
+                <a href="/logout" class="btn btn-link">Logout</a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <!-- Not Nav Bar  -->
+
+
+        <h2 class="posthead">Hello {{user.username}}!!!</h2>
+
+        <p class="info">Welcome to Post@ll. A completely anonymous website where users are able to post their opinions freely and read the opinions of others, as well!</p>
+
+
+{#    <main class="d-flex justify-content-around">
+        <div class="col-5 bg-dark text-light">
+            <h2 class="text-center">{{posts|length}} Posts you made:</h2>
+            <hr class="bg-warning">
+
+            {% for post in posts %}
+            <div class="card bg-primary my-2">
+                <div class="card-body">
+                    <h3 class="card-title">{{post.sender}} said {{post.time_span()}}:</h3>
+                    <p class="card-text">{{post.content.user_id}}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="/delete/post/{{post.id}}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main> #}
+</body>
+</html>

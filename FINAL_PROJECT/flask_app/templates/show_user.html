@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <title>User Page</title>
+    </head>
+    <body>
+
+        {# <!-- Navigation Bar -->  #}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark d-flex col-4 justify-content-around">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+            <a href="/dashboard" class="btn btn-link">Dashboard</a>
+            </li>
+            <li class="nav-item">
+            <a href="/home" class="btn btn-link">Home</a>
+            </li>
+            <li class="nav-item">
+            <a href="/logout" class="btn btn-link">Logout</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+
+
+    {#<!-- Not Nav Bar  --> #}
+
+        <h1>Welcome {{user.username}}!!</h1>
+
+        <h2 class="header">User: {{user.id}}</h2>
+            <p>User: {{user.username()}}</p>
+            <p>Email: {{user.email}}</p>
+
+            <p>Created On: {{user.created_at.strftime("%b %d %Y")}}</p>
+            <p>Last Updated: {{user.updated_at.strftime("%b %d %Y")}}</p>
+    </body>
+    </html>

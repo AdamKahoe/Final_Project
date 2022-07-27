@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <title>Homepage</title>
+</head>
+
+    {# <!-- Navigation Bar -->  #}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark d-flex col-4 justify-content-center">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                <a href="/dashboard" class="btn btn-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                <a href="/logout" class="btn btn-link">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    {#<!-- Not Nav Bar  --> #}
+
+    <h1 class="posthead">Welcome to POST@LL!!!!</h1>
+
+        <h3>Recent Posts: </h3>
+
+
+    <div class="card">
+        <div class="card-body">
+            {% for post in posts %}
+
+
+            <h3>{{post.title}}</h3>
+            <h6>Posted by: {{post.user.username}}</h6>
+            <p>{{post.content}}</p>
+
+            {% if session["user_id"] == post.user.id %}
+
+            <a href="/edit/post/{{post.id}}" class="btn btn-link" value="Edit Post">Edit</a>
+            <a href="/delete/post/{{post.id}}" class="btn btn-link" value="Delete Post">Delete</a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container">
+        <a href="/new/post" class="btn btn-link">New Post</a>
+    </div>
+
+
+</body>
+</html>
