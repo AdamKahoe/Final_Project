@@ -15,7 +15,7 @@
             {% with messages = get_flashed_messages(category_filter=['register']) %}
                 {% if messages %}
                 <div class="alert alert-danger" role="alert">
-                    <strong>Flash AHHHHHHH!!!!</strong>
+                    <strong>Oh no!!!!</strong>
                         {% for message in messages %}
                         <p>{{message}}</p>
                         {% endfor %}
@@ -38,7 +38,7 @@
                 <label for="confirm">Confirm Password:</label>
                 <input type="password" name="confirm" class="form-control">
             </div>
-            <input type="submit" value="Register" class="btn btn-primary">
+            <input type="submit" value="Register" class="btn btn-link">
         </form>
         <form action="/login" method="post" class="col-4 p-4 bg-dark text-light">
             <h2 class="text-success">Login</h2>
@@ -61,7 +61,7 @@
                 <input type="password" name="password" class="form-control">
             </div>
 
-            <input type="submit" value="Login" class="btn btn-success">
+            <input type="submit" value="Login" class="btn btn-link">
         </form>
     </div>
 </body>
